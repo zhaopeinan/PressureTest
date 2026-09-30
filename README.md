@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/github-banner.png" alt="PressureTest — a local Locust control plane" width="100%">
+</p>
+
 # PressureTest
 
 A local control plane for [Locust](https://locust.io/). Pick a scenario, bound the run, and watch throughput, latency, and failures from one console.
