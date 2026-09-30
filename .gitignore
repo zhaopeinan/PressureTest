@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Prefer conda env `pressure-test` (see environment.yml); ignore local venvs
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+frontend/dist/
+*.log
+
+# Reports / runtime data (local paths, logs, captured results)
+backend/reports/**
+!backend/reports/.gitkeep
+*.docx
+*.csv
+
+# Env / secrets / OS
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/
+.cursor/

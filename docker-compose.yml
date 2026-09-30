@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      PT_ALLOWED_HOSTS: "130th.bjtu.edu.cn,welcome.bjtu.edu.cn,map.bjtu.edu.cn,localhost,127.0.0.1"
+      PT_CORS_ORIGINS: "http://localhost:5173,http://127.0.0.1:5173"
+      PT_REPORTS_DIR: /app/reports
+    volumes:
+      - ./backend/reports:/app/reports
+      - ./backend/app:/app/app
+    # Locust must reach public targets from the container network.
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE: http://localhost:8000
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/src:/app/src
